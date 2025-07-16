@@ -1,3 +1,4 @@
+# pip install -r requirements.txt
 Flask==3.1.1
 netifaces==0.11.0
 pyftpdlib==2.0.1
