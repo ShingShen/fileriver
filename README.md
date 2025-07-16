@@ -1,12 +1,11 @@
-# 📦 File Transfer Server MVP
+# 📦 fileriver
 
 This project is a Minimal Viable Product (MVP) for a unified file transfer server. It currently supports:
 
 - ✅ HTTP file upload and download  
 - ✅ FTP file transfer with authentication  
+- ✅ TFTP file transfer 
 - 🔜 SFTP placeholder for future integration  
-
-All files are stored locally in the `./uploads/` directory.
 
 ---
 
@@ -37,12 +36,21 @@ It will return the requested file from the `uploads` directory.
 
 ### ✅ FTP Server
 
-- Host: `localhost`  
+- Host: `Network Adaptor IP`  
 - Port: `2121`  
 - Username: `admin`  
 - Password: `admin`  
 
-Supported by any FTP client (e.g. FileZilla, WinSCP, command-line tools).
+Supported by any FTP client (e.g. FileZilla, command-line tools).
+
+---
+
+### ✅ TFTP Server
+
+- Host: `Network Adaptor IP`  
+- Port: `6969`  
+
+Supported by any TFTP client (e.g. Tftpd64, command-line tools).
 
 ---
 
@@ -73,7 +81,7 @@ pip install -r requirements.txt
 
 Or manually:
 ```bash
-pip install flask pyftpdlib paramiko
+pip install flask pyftpdlib tftpy
 ```
 
 ---
@@ -81,25 +89,8 @@ pip install flask pyftpdlib paramiko
 ### 3. Run the Server
 
 ```bash
-python file_transfer_server.py
+python main.py --ip <Network Adaptor IP>
 ```
-
-You should see:
-
-- HTTP server running at: `http://localhost:5000`  
-- FTP server listening on: `ftp://localhost:2121`
-
----
-
-## 📁 Upload Directory
-
-All uploaded or transferred files are stored under:
-
-```
-./uploads/
-```
-
-Ensure the application has write access to this folder.
 
 ---
 
