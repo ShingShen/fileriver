@@ -1,11 +1,10 @@
 # 📦 fileriver
 
-This project is a Minimal Viable Product (MVP) for a unified file transfer server. It currently supports:
+This project is a unified file transfer server. It currently supports:
 
 - ✅ HTTP file upload and download  
 - ✅ FTP file transfer with authentication  
 - ✅ TFTP file transfer 
-- 🔜 SFTP placeholder for future integration  
 
 ---
 
@@ -19,7 +18,7 @@ POST /upload
 ```
 
 Usage: send a `multipart/form-data` request with the key `file`.  
-Example tools: `curl`, Postman, Python `requests`, web form.
+Example tools: `curl`, Postman, Python `requests`.
 
 ---
 
@@ -79,11 +78,6 @@ If using `requirements.txt`:
 pip install -r requirements.txt
 ```
 
-Or manually:
-```bash
-pip install flask pyftpdlib tftpy
-```
-
 ---
 
 ### 3. Run the Server
@@ -106,4 +100,4 @@ python main.py --ip <Network Adaptor IP>
 
 ## 👨‍💻 Developer Notes
 
-This MVP is ideal for quick testing, demonstrations, or internal use cases where simple file transfer is required across different protocols. It provides a foundation for building a more advanced, multi-protocol file management platform.
+This tool is ideal for quick testing, demonstrations, or internal use cases where simple file transfer is required across different protocols. It provides a foundation for building a more advanced, multi-protocol file management platform.
