@@ -5,7 +5,7 @@ a = Analysis(
     ['fileriver.py'],
     pathex=[],
     binaries=[],
-    datas=[('filetraffic', 'filetraffic'), ('cli.py', '.'), ('http_server.py', '.')],
+    datas=[('filetraffic', 'filetraffic'), ('cli.py', '.'), ('http_server.py', '.'), ('http_server_files', 'http_server_files')],
     hiddenimports=['netifaces', 'pyftpdlib', 'pyftpdlib.authorizers', 'pyftpdlib.handlers', 'pyftpdlib.servers', 'tftpy', 'flask'],
     hookspath=[],
     hooksconfig={},

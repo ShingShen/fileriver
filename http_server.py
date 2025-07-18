@@ -1,5 +1,6 @@
 import os
-from flask import Flask, request, send_from_directory, jsonify
+import traceback
+from flask import Flask, request, send_from_directory, jsonify, send_file
 
 UPLOAD_FOLDER = './http_server_files'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
@@ -20,13 +21,21 @@ def upload_file():
 # --- HTTP Download ---
 @app.route('/<filename>', methods=['GET'])
 def download_file(filename):
-    return send_from_directory(UPLOAD_FOLDER, filename, as_attachment=True)
+    file_path = os.path.join(UPLOAD_FOLDER, filename)
+    if not os.path.isfile(file_path):
+        return jsonify({"error": "File not found"}), 404
+
+    try:
+        return send_file(file_path, as_attachment=True)
+    except Exception as e:
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
 
 # --- Optional: List Uploaded Files ---
-# @app.route('/list', methods=['GET'])
-# def list_files():
-#     files = os.listdir(UPLOAD_FOLDER)
-#     return jsonify({"files": files})
+@app.route('/list', methods=['GET'])
+def list_files():
+    files = os.listdir(UPLOAD_FOLDER)
+    return jsonify({"files": files})
 
 def start_http_server(ip, port=5001):
     print(f"Starting HTTP server on http://{ip}:{port}")
