@@ -14,7 +14,7 @@ This project is a unified file transfer server. It currently supports:
 
 Endpoint:  
 ```http
-POST /upload
+POST http://<HTTP SERVER IP>:5001/
 ```
 
 Usage: send a `multipart/form-data` request with the key `file`.  
@@ -26,10 +26,10 @@ Example tools: `curl`, Postman, Python `requests`.
 
 Endpoint:  
 ```http
-GET /download/<filename>
+GET http://<HTTP SERVER IP>:5001/<filename>
 ```
 
-It will return the requested file from the `uploads` directory.
+It will return the requested file from the `http_server_files` directory.
 
 ---
 
@@ -85,16 +85,6 @@ pip install -r requirements.txt
 ```bash
 python main.py --ip <Network Adaptor IP>
 ```
-
----
-
-## 🔧 Future Plans
-
-- [ ] Implement internal SFTP server (Paramiko ServerInterface)  
-- [ ] Add web-based file manager interface  
-- [ ] User account and permission system  
-- [ ] Docker container support  
-- [ ] Logging, monitoring, and audit trail  
 
 ---
 
