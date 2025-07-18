@@ -6,7 +6,7 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 app = Flask(__name__)
 
 # --- HTTP Upload ---
-@app.route('', methods=['POST'])
+@app.route('/', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:
         return jsonify({'error': 'No file part'}), 400
