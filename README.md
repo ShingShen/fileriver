@@ -63,12 +63,6 @@ python3 -m venv <folder path>
 source <folder path>/bin/activate
 ```
 
-#### On Windows (cmd):
-```cmd
-python -m venv <folder path>
-<folder path>\Scripts\activate
-```
-
 ---
 
 ### 2. Install Dependencies
